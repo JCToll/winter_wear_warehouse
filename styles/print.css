@@ -1,0 +1,11 @@
+/*
+Do NOT print:
+	header email innput
+	header singin and cart buttons
+	navbar
+	footer
+NOTE: retain printing the header "bear icon" and the promotion bar 
+*/
+
+.noprint, .signin, .navbar,  footer { display: none; }
+

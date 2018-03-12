@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+ 
+/*  define the product styles and elements  */
+.product { 
+/*  Don't want a border on each product
+    border-style: solid;
+    border-color: gainsboro;
+    border-width: thin;   didn't like the thin lines*/
+    text-align: center;
+    padding: 2px;
+    margin: 0px; 
+    min-height: auto;
+    max-width: 300px;
+}
+
+
+.flex-container div {
+   padding: 1rem;
+}
+
+/* define the <p> used to describe the product in the flex container*/
+.flex-container div p {
+    font-size: 0.8em;
+    color: black;
+}
+
+.flex-container {
+/*  border: 1px dashed black;   use if you want a dashed black line*/
+    width: 90%;
+    margin: auto;
+}

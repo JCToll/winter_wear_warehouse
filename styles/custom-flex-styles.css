@@ -1,0 +1,167 @@
+
+.wrapper {
+    clear: both;
+    display: flex;  
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+}
+
+.wrapper > * {
+    padding: 10px;
+    flex: 1 100%;
+}
+
+.parent {
+    display: flex;
+    height: 640px;  
+}
+
+.child {
+    width: 100px;  
+    height: 100px; 
+    margin: auto;   
+}  
+
+.flex-container {
+/* first create a flex layout context */
+    display: flex;
+/*	define flow direction (row) and define to wrap */
+    flex-flow: row wrap; 
+/*  define how is distributed the remaining space */
+    justify-content: space-around;
+}
+/* ========== navbar style ============ */ 
+/* === The layout is resized for 3 widths:
+	1- narrow (mobile): < 640 px width
+	2- medium (tablets): 640 to 992 px width
+	3- wide (laptops, screens): > 992 px width
+*/
+
+
+/* === WIDE SCREEN: navbar default screen width > 992 px wide */
+nav.navbar {
+    list-style: none;
+    margin: 0; 
+  
+/* background: rebeccapurple or #663399; */
+    background: linear-gradient(to bottom right,#663399,dimgray);  
+    color: white; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+nav.navbar ul {
+    display:flex;
+}
+
+
+nav.navbar a {
+    text-decoration: none;
+    display: block;
+    padding: 0.5em;
+    color: white;
+}
+
+nav.navbar a:hover {
+    background: color(darkblue, 2%);
+}
+
+/* === MEDIUM WIDTH SCREEN: navbar for  > 640 px &  < 992 px  width */
+
+@media all and (max-width: 992px) {
+    nav.navbar {
+/* background: rebeccapurple;   med width purple */
+	background: linear-gradient(to bottom right,#663399,dimgray); 
+	flex-direction: row;
+	flex-wrap: nowrap;
+	padding: 0;
+	justify-content: space-around;
+}
+	
+    .navbar a { 
+	text-align: center; 
+	padding: 10px;
+	border-top: 1px solid rgba(255,255,255,0.3); 
+	border-bottom: 1px solid rgba(0,0,0,0.1); 
+}	
+	
+}  /* end @media  max-wdith 992px */
+
+/* === SMALL WIDTH SCREEN: navbar for  < 640 px  width */
+/* force wraping to single column */
+@media all and (max-width: 640px) {
+    .navbar {
+	background: linear-gradient(to bottom right,#663399,dimgray); 
+	flex-flow: column wrap;
+	padding: 0;
+    }
+
+    nav.navbar ul {
+/* for narrow display - remove flex so menu items go vertical */
+	display: inline;
+}
+	
+    .navbar a { 
+	text-align: center; 
+	padding: 10px;
+	border-top: 1px solid rgba(255,255,255,0.3); 
+	border-bottom: 1px solid rgba(0,0,0,0.1); 
+}
+
+/* When narrow width - reduce size of image - make it smaller */
+    .smallimg {
+	width: 50%;
+	height:auto;
+}
+
+/* for narrow display - reduce font size to fit better */	
+    header.mailing h2 {
+	font-size: .6rem;
+}
+	
+    .product { 
+	text-align: center;
+	padding: 2px;
+	margin: 0px; 
+	height:auto;
+/*    min-width: 250px;*/
+}
+	
+}  /* end @media  max-wdith 640px */
+
+    .aside {
+	background: lightgray;
+	font-size: 0.8rem; 
+	width: 10%; 
+}
+
+    .main {
+	background: white;
+	width: 90%; 
+}
+
+
+/*User special media code to determine how to change
+  When width < 640 px - set to single column  */
+@media all and (min-width: 640px) {
+    .aside { flex: 1 auto; }
+}
+
+/*Note: aside pops up after nav bar on smaller screens so that there
+   is 1 column of elements */
+@media all and (min-width: 992px) {
+    .main    { flex: 3 0px; }
+    .navbar {order:1;}
+    .aside { order: 2; } 
+    .main    { order: 3; }
+    .footer  { order: 4; }
+}
+
+body {
+    padding: 2em; 
+}
+
+

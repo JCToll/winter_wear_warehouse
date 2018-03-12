@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Winter Scarves</title>
+  <meta charset="utf-8">
+	
+	<link rel="stylesheet" href="styles/search.css">
+	<link rel="stylesheet" href="styles/reset.css">
+	<link rel="stylesheet" href="styles/basic-styles.css">
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/custom-flex-styles.css">
+	<!-- Load icon library used for search and mailing -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" media="print" href="styles/print.css">
+	<!--	Use Font Awesome to make cart icon  ~ must be put in the <head> section-->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script
+	
+	
+</head>
+
+<body>
+		
+    <header class="logo">
+	    <img src="images/logo-scarfcat.png" alt="logo"> 
+	    <!-- use variable width font, done in css			-->
+	    <h1>Winter Wear Warehouse</h1>
+    </header>
+		
+    <header class="mailing">
+	    <h2> Winter is comming to an end...  See our special winter clothes sale with up to 50% price reduction!</h2>
+	<!-- use noprint class to remove from printing 			-->
+	    <p class="noprint">Sign up for our mailing list:</p>
+	<!-- The mailing list form -->	
+	    <form name="custInfo" onsubmit="capture();" class="noprint"> 
+		    <label><input type="email" name="userEmail"> </label>		
+		    <label><input type="submit" value="Submit"></label>
+	    </form>
+    </header>
+	
+    <header class="signin">
+		<h1>x</h1> <h1>x</h1> <h1>x</h1>  <h1>x</h1>
+		<button onclick="mySignin()">SIGN IN</button> 
+		<button onclick="myCart()">CART</button>
+	    <!-- previous: printed message removed: <p id="msg"></p>-->
+    </header>
+
+		
+
+    <nav class="navbar">
+	    <ul>
+		<li class="navbar"><a href="#">Hats</a></li>
+		<li class="navbar"><a href="#">Gloves</a></li>
+		<li class="navbar"><a href="#">Scarves</a></li>
+	    </ul>
+    </nav>
+	
+<!--	create div that does wrapper around entire page -->
+<div class="wrapper">
+	
+    <aside class="aside">
+	    <!-- Add search box to aside-->
+	    <form class="example" action="/action_page.php" style="margin:auto;max-width:250px">
+	    <label> <input type="text" placeholder="Search.." name="search2"> </label>
+	    <label> <button type="submit"><i class="fa fa-search"></i></button> </label>
+	    </form>	
+    </aside>
+
+			
+    <article class="main">
+	    <h2>Scarves</h2>
+
+	<div class="flex-container">
+	
+	    <!-- First use the srcset method to set image size based on width  -->	
+            <div class="product">
+		<a href=" ">   <!-- wrap the image in hypelink -->
+		<img  srcset="images/fringed-plaid-150.jpg 300w,
+			      images/fringed-plaid-300.jpg 500w,
+			      images/fringed-plaid-600.jpg 900w"
+			sizes="(max-width: 450px) 100px,
+			       (max-width: 650px) 150px,
+			       900px"											
+			src="images/fringed-plaid-600.jpg" alt="fringed plaid" >
+                 </a> 
+		<h4>Fringed Plaid</h4>
+		<p>Generously sized, extra soft and featuring a dazzling fringe, this scarf is rendered in a versatile gray, black and white plaid. Expertly beat the cold with style. 100% acrylic. </p>
+		<p>Price: $18.99</p>
+
+		<i class="fas fa-cart-arrow-down fa-lg" onclick="updateCart('Fringed Plaid')"></i>
+
+	    </div>
+					
+	    <div class="product">
+		<a href=" ">   <!-- wrap the image in hypelink -->
+		<img  srcset="images/reversible-plaid-150.jpg 300w,
+			      images/reversible-plaid-300.jpg 500w,
+			      images/reversible-plaid-600.jpg 900w"
+			sizes="(max-width: 450px) 85px,
+			       (max-width: 650px) 150px,
+			       900px"											
+			src="images/reversible-plaid-600.jpg" alt="reversible plaid" > 
+		</a>		
+		<h4>Reversible Plaid</h4>
+		<p>Two classic patterns in one great look: This supersoft and cozy reversible scarf instantly doubles your street-style cred. 100% acrylic </p>
+		<p>Price: $26.99</p>
+		
+		<i class="fas fa-cart-arrow-down fa-lg" onclick="updateCart('Reversible Plaid')"></i>
+		
+	    </div>				
+		
+					
+            <div class="product">
+		<a href=" ">   <!-- wrap the image in hypelink -->
+		<img  srcset="images/multi-color-150.jpg 300w,
+				images/multi-color-300.jpg 500w,
+				images/multi-color-600.jpg 900w"
+			sizes="(max-width: 450px) 85px,
+				(max-width: 650px) 150px,
+				900px"											
+			src="images/multi-color-600.jpg" alt="multicolor plaid" > 
+		</a>
+		<h4>Multi Color</h4> 
+		<p>The Who What Where Oversize Color-Block Square Scarf is big, bold, and designed to twist and wrap any way you wish. All the colors of the season are harmonized in this oversize accent. 100% acrylic.</p>
+		<p>Price: $22.99</p>
+		
+		<i class="fas fa-cart-arrow-down fa-lg" onclick="updateCart('Multi Color')"></i>
+
+	    </div>
+			
+    <!-- Now use the easier method to set image size using the @media in css  -->					
+            <div class="product">
+		<a href=" ">   <!-- wrap the image in hypelink -->
+			<img class="smallimg" src="images/northern-lights.jpg" alt="northern ligts plaid" >
+		</a>
+		<h4>Northern Ligths</h4>
+		<p>Handmade by women in Agra, sales provide medical and educational support in this remote area of India. Crinkly 100% cotton</p>
+		<p>Price: $29.99</p>
+	<!-- add cart icon to each product;  when selected run the updateCart function to update the Cart list --> 	
+		<i class="fas fa-cart-arrow-down fa-lg" onclick="updateCart('Northern Ligths')"></i>
+
+	    </div>
+					
+            <div class="product">
+		<a href=" ">   <!-- wrap the image in hypelink -->
+			<img class="smallimg" src="images/ombre-infinity.jpg" alt="ombre plaid" >
+		</a> 
+		<h4>Ombre Infinity</h4>
+		<p>A dip-dye effect adds color and dimension to a cozy infinity scarf featuring a soft, chunky knit. 100% acrylic. </p>
+		<p>Price: $11.99</p>
+		
+		<i class="fas fa-cart-arrow-down fa-lg" onclick="updateCart('Ombre Infinity')"></i>
+
+	    </div>
+					
+            <div class="product">
+		<a href=" ">   <!-- wrap the image in hypelink -->
+		    <img class="smallimg" src="images/twill.jpg" alt="twill" >
+		</a> 
+		<h4>Ashby Twill</h4>
+		<p>Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool.</p>
+		<p>Price: $70.99</p>
+		
+		<i class="fas fa-cart-arrow-down fa-lg" onclick="updateCart('Ashby Twill')"></i>
+	    </div>
+					
+            <div class="product">
+		<a href=" ">   <!-- wrap the image in hypelink -->
+		    <img class="smallimg" src="images/wool-cable.jpeg" alt="wool cable" >
+		</a> 
+		<h4>Wool Cable Knit</h4>
+		<p>Warm yourself with this women's natural cable knit scarf, crafted from 100% Merino wool. Imported. </p>	
+		<p>Price: $49.99</p>
+		
+		<i class="fas fa-cart-arrow-down fa-lg" onclick="updateCart('Wool Cable Knit')"></i>
+	    </div>					
+
+            <div class="product">
+		<a href=" ">   <!-- wrap the image in hypelink -->
+		    <img class="smallimg" src="images/etro.png" alt="etro silk" >
+		</a>
+		<h4>Etro Paisley-Print Silk</h4>
+		<p>Luxurious silk scarf with subtle paisley pattern. 100% silk. </p>	
+		<p>Price: $26.99</p>
+		
+		<i class="fas fa-cart-arrow-down fa-lg" onclick="updateCart('Etro Paisley-Print Silk')"></i>
+	    </div>					
+
+
+	</div>   <!-- end div class=flex-container--> 
+			
+    </article>    <!-- end article class=main  --> 
+
+	<div class="footer">
+		<details class="printfooter">
+		    <summary class="printfooter">&copy; 2018 || Posted by: Joel Tollefson</summary>
+		    <p class="printfooter">Posted by: Joel Tollefson</p>
+		    <p class="printfooter">Contact information: <a href="mailto:Joel.Tollefson@gmail.com">
+			    Joel.Tollefson@gmail.com</a>  </p>
+		    <time datetime="2018-02-12">Revision date:2018-02-12</time> <!-- not sure how datetime works -->
+		</details>
+	</div>
+		
+<!-- end div class=wrapper		-->
+</div>  
+
+<!--  javascript for the search function -->
+	<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>
